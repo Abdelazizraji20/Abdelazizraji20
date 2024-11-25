@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const images = [
+  {
+    src: "/images/classroom1.jpg",
+    alt: "Salle de classe moderne",
+    title: "Salle de Cours Principale"
+  },
+  {
+    src: "/images/lab.jpg",
+    alt: "Laboratoire de robotique",
+    title: "Laboratoire Robotique"
+  },
+  {
+    src: "/images/language-lab.jpg",
+    alt: "Laboratoire de langues",
+    title: "Laboratoire de Langues"
+  },
+  {
+    src: "/images/study-area.jpg",
+    alt: "Espace d'étude",
+    title: "Espace d'Étude"
+  },
+  {
+    src: "/images/reception.jpg",
+    alt: "Réception",
+    title: "Accueil"
+  },
+  {
+    src: "/images/exterior.jpg",
+    alt: "Extérieur du centre",
+    title: "Notre Centre"
+  }
+];
+---
+
+<Layout title="Galerie">
+  <section class="py-16 container mx-auto px-4">
+    <h1 class="text-3xl font-bold text-center mb-12">Galerie La Véga Center</h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {images.map((image) => (
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img
+            src={image.src}
+            alt={image.alt}
+            class="w-full h-64 object-cover"
+          />
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-800">{image.title}</h3>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>

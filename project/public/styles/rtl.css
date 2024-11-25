@@ -1,0 +1,16 @@
+/* RTL support for Arabic language */
+body[dir="rtl"] {
+  text-align: right;
+}
+
+body[dir="rtl"] .space-x-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+body[dir="rtl"] .space-x-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+body[dir="rtl"] .grid {
+  direction: rtl;
+}

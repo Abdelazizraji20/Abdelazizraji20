@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const days = [
+  { name: 'Lundi', slots: ['9h-12h', '14h-21h'] },
+  { name: 'Mardi', slots: ['9h-12h', '14h-21h'] },
+  { name: 'Mercredi', slots: ['9h-12h', '14h-21h'] },
+  { name: 'Jeudi', slots: ['9h-12h', '14h-21h'] },
+  { name: 'Vendredi', slots: ['9h-12h', '14h-21h'] },
+  { name: 'Samedi', slots: ['9h-12h', '14h-21h'] },
+  { name: 'Dimanche', slots: ['9h-12h', '14h-21h']  }
+];
+---
+
+<Layout title="Disponibilité des Professeurs">
+  <section class="py-16 container mx-auto px-4">
+    <h1 class="text-3xl font-bold text-center mb-12">Disponibilité des Professeurs</h1>
+    
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-7 divide-y md:divide-y-0 md:divide-x">
+          {days.map((day) => (
+            <div class="p-4">
+              <h3 class="font-semibold text-lg text-primary mb-2">{day.name}</h3>
+              <ul class="space-y-1 text-sm text-gray-600">
+                {day.slots.map((slot) => (
+                  <li>{slot}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="bg-white p-8 rounded-lg shadow-md text-center">
+        <h2 class="text-2xl font-semibold mb-4">Réserver un Créneau</h2>
+        <p class="text-gray-600 mb-6">
+          Pour réserver un créneau avec nos professeurs, veuillez remplir le formulaire de disponibilité ci-dessous :
+        </p>
+        <a 
+          href="https://forms.office.com/Pages/DesignPageV2.aspx?origin=NeoPortalPage&rpring=MSA&rpsession=74b345a3-ec6c-4f52-bbbb-751b629cdf28&subpage=design&id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAN__u8hcR1URE9XSEI5U0ZPQlZBWVJRN0ZXMFVBR0tMTi4u"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block bg-primary text-white py-3 px-6 rounded-md hover:bg-secondary transition-colors"
+        >
+          Réserver un Créneau 
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

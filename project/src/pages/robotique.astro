@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CourseCard from '../components/CourseCard.astro';
+---
+
+<Layout title="Robotique">
+  <section class="bg-secondary text-white py-16">
+    <div class="container mx-auto px-4">
+      <h1 class="text-3xl font-bold mb-6">Robotique et Arduino</h1>
+      <p class="text-xl">Découvrez le monde passionnant de la robotique et de la programmation</p>
+    </div>
+  </section>
+
+  <section class="py-12 container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <CourseCard
+        title="Initiation à Arduino"
+        description="Apprenez les bases de l'électronique et de la programmation avec Arduino"
+        icon="⚡"
+      />
+      <CourseCard
+        title="Projets Robotiques"
+        description="Créez vos propres robots et systèmes automatisés"
+        icon="🔧"
+      />
+    </div>
+  </section>
+</Layout>

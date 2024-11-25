@@ -1,0 +1,73 @@
+---
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+import { translations } from '../i18n/translations';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+const lang = Astro.url.searchParams.get('lang') || 'fr';
+const t = translations[lang];
+
+const isRTL = lang === 'ar';
+---
+
+<!DOCTYPE html>
+<html lang={lang} dir={isRTL ? 'rtl' : 'ltr'}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title} | La Véga Center Fès</title>
+    <meta name="description" content="La Véga Center Fès - Centre de soutien scolaire et de langues - Français, Anglais, Allemand et Robotique" />
+    {isRTL && <link rel="stylesheet" href="/styles/rtl.css" />}
+  </head>
+  <body class="min-h-screen bg-gray-50">
+    <header class="bg-primary text-white">
+      <nav class="container mx-auto px-4 py-4">
+        <div class="flex justify-between items-center">
+          <a href="/" class="flex items-center space-x-2">
+            <img src="/images/logo.png" alt="La Véga Center Logo" class="h-12 w-auto" />
+            <span class="text-xl font-bold">{t['header.title']}</span>
+          </a>
+          <div class="flex items-center space-x-6">
+            <ul class="flex space-x-6">
+              <li><a href="/" class="hover:text-gray-200">{t['nav.home']}</a></li>
+              <li><a href="/langues" class="hover:text-gray-200">{t['nav.languages']}</a></li>
+              <li><a href="/robotique" class="hover:text-gray-200">{t['nav.robotics']}</a></li>
+              <li><a href="/galerie" class="hover:text-gray-200">{t['nav.gallery']}</a></li>
+              <li><a href="/disponibilite" class="hover:text-gray-200">{t['nav.availability']}</a></li>
+              <li><a href="/inscription" class="hover:text-gray-200">{t['nav.registration']}</a></li>
+              <li><a href="/contact" class="hover:text-gray-200">{t['nav.contact']}</a></li>
+            </ul>
+            <LanguageSwitcher currentLang={lang} />
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-lg font-semibold mb-4">{t['footer.contact']}</h3>
+            <p>Email: lavegacenterfes@gmail.com</p>
+            <p>Tél: +212 670 742 743</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">{t['footer.hours']}</h3>
+            <p>Lundi - Dimanche: 9h - 21h</p>
+            <p>Pause: 12h - 14h</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">{t['footer.address']}</h3>
+            <p>102 Lot Asmae</p>
+            <p>Route Ain Chkef, Fès</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

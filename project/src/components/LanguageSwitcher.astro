@@ -1,0 +1,29 @@
+---
+const { currentLang } = Astro.props;
+---
+
+<div class="relative inline-block text-left">
+  <select
+    id="language-select"
+    class="block appearance-none bg-transparent border border-white rounded-md px-4 py-2 pr-8 text-white hover:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+    value={currentLang}
+  >
+    <option value="fr" class="bg-primary text-white">Français</option>
+    <option value="ar" class="bg-primary text-white">العربية</option>
+  </select>
+</div>
+
+<script>
+  const select = document.getElementById('language-select') as HTMLSelectElement;
+  
+  select.addEventListener('change', (e) => {
+    const target = e.target as HTMLSelectElement;
+    const newLang = target.value;
+    const currentPath = window.location.pathname;
+    
+    // Add language parameter to current URL
+    const url = new URL(window.location.href);
+    url.searchParams.set('lang', newLang);
+    window.location.href = url.toString();
+  });
+</script>

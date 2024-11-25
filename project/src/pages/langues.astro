@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CourseCard from '../components/CourseCard.astro';
+---
+
+<Layout title="Langues">
+  <section class="bg-secondary text-white py-16">
+    <div class="container mx-auto px-4">
+      <h1 class="text-3xl font-bold mb-6">Cours de Langues</h1>
+      <p class="text-xl">Développez vos compétences linguistiques avec nos cours de langues</p>
+    </div>
+  </section>
+
+  <section class="py-12 container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <CourseCard
+        title="Français"
+        description="Cours de français tous niveaux, préparation aux examens DELF/DALF"
+        icon="🇫🇷"
+      />
+      <CourseCard
+        title="Anglais"
+        description="De débutant à avancé, préparation TOEFL/IELTS"
+        icon="🇬🇧"
+      />
+      <CourseCard
+        title="Allemand"
+        description="Apprentissage de l'allemand et préparation au Goethe-Zertifikat"
+        icon="🇩🇪"
+      />
+    </div>
+  </section>
+</Layout>
